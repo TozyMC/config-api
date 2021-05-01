@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'xyz.tozymc.api'
+version '1.0-BETA'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
+
+    implementation 'org.snakeyaml:snakeyaml-engine:2.2.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation('com.moandjiezana.toml:toml4j:0.7.2') {
+        exclude group: 'com.google.code.gson', module: 'gson'
+    }
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:1.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+shadowJar {
+    archiveBaseName.set('config-api')
+    archiveClassifier.set('')
+    archiveVersion.set(project.version as String)
+
+    dependencies {
+        include(dependency('org.snakeyaml:snakeyaml-engine'))
+        include(dependency('com.google.code.gson:gson'))
+        include(dependency('com.moandjiezana.toml:toml4j'))
+    }
+}
