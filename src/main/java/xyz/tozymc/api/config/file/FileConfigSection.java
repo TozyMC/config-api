@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  * A type of {@link ConfigSection} that is handled with file.
  *
  * @author TozyMC
- * @see 1.0
+ * @since 1.0
  */
 public class FileConfigSection implements ConfigSection {
 

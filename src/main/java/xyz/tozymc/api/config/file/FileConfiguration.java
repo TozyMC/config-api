@@ -36,6 +36,7 @@ public abstract class FileConfiguration extends FileConfigSection implements Con
    * <p>This constructor also creates new file if it doesn't exist, and update timestamp.
    *
    * @param file The file to store data into.
+   * @throws IOException Thrown when initial file failed.
    */
   protected FileConfiguration(@NotNull File file)
       throws IOException {

@@ -34,7 +34,7 @@ public @interface ConfigurationSerializable {
    *   <li>Only one parameter: The type of the serializable class.</li>
    * </ul>
    * <p>For example:
-   * <pre>Map&lt;String, Object> serialize(T object) {
+   * <pre>Map&lt;String, Object&gt; serialize(T object) {
    *   // somethings
    *   return map;
    * }</pre>
@@ -54,7 +54,7 @@ public @interface ConfigurationSerializable {
    *   <li>Only one parameter: The serialized {@link Map}.</li>
    * </ul>
    * <p>For example:
-   * <pre>static T deserialize(Map&lt;String, Object> map) {
+   * <pre>static T deserialize(Map&lt;String, Object&gt; map) {
    *   // somethings
    *   return object;
    * }</pre>
